@@ -75,12 +75,13 @@ export default class StoryPanel extends Component {
     } = this.state;
     const sourceLines = source.split('\n');
     const newFileSource =
-      sourceLines.slice(0, Math.max(0, startLocLine - 2)).join('\n') +
+      sourceLines.slice(0, Math.max(0, startLocLine - 1)).join('\n') +
       (startLocLine === 0 ? '' : '\n') +
       sourceLines[startLocLine - 1].substring(0, startLocCol) +
-      newSource +
-      sourceLines[endLocLine - 1].substring(endLocCol) +
-      sourceLines.slice(Math.min(sourceLines.length - 1, endLocLine));
+      newSource.substring(startLocCol, newSource.lastIndexOf(')') + 1) +
+      (newSource.endsWith('\n') ? '\n' : '') +
+      sourceLines[endLocLine - 1].substring(endLocCol + 1) +
+      sourceLines.slice(Math.min(sourceLines.length - 1, endLocLine)).join('\n');
 
     const newEndLocLine = startLocLine + newSource.split('\n').length - 1;
     const newEndLocCol = newSource.split('\n').slice(-1).length;
