@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react';
 
 import {
   withKnobs,
-  withKnobsOptions,
   text,
   number,
   boolean,
@@ -244,7 +243,7 @@ storiesOf('Addons|Knobs.withKnobs using options', module)
 
 storiesOf('Addons|Knobs.withKnobsOptions', module)
   .addDecorator(
-    withKnobsOptions({
+    withKnobs({
       escapeHTML: false,
     })
   )

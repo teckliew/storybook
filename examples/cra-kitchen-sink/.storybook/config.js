@@ -1,7 +1,7 @@
 import { configure } from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
+import { withOptions } from '@storybook/addon-options';
 
-setOptions({
+withOptions({
   name: 'CRA Kitchen Sink',
   url: 'https://github.com/storybooks/storybook/tree/master/examples/cra-kitchen-sink',
   goFullScreen: false,
